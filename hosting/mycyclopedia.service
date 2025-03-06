@@ -1,0 +1,13 @@
+[Unit]
+Description=uWSGI instance to serve the Mycyclopedia web app
+After=network.target
+
+[Service]
+User=www-data
+Group=www-data
+WorkingDirectory=/var/www/html/mycyclopedia
+Environment="PATH=/var/www/html/mycyclopedia/venv/bin"
+ExecStart=/var/www/html/mycyclopedia/venv/bin/uwsgi --ini /var/www/html/mycyclopedia/hosting/uwsgi.ini
+
+[Install]
+WantedBy=multi-user.target

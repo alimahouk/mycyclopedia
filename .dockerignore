@@ -1,0 +1,6 @@
+__pycache__
+.vscode
+.venv
+.git
+app/static/
+docs/

@@ -1,0 +1,127 @@
+{% extends "pages/base.html" %}
+
+{% block headTags %}
+<title>Mycyclopedia</title>
+<link href="{{url_for('static', filename='styles/index.css')}}"
+      rel="stylesheet"
+      type="text/css">
+{% endblock %}
+
+{% block nav %}
+<div class="flexibleSpace"></div>
+<div class="flexibleSpace"></div>
+<div class="flexibleSpace"></div>
+<div class="flexibleSpace"></div>
+{% if current_user %}
+<div id="mainHeaderActionButtons">
+      <div id="currentAccountIdentity">{{current_user.email_address}}</div>
+      <form action="/log-out"
+            method="post"
+            name="logoutForm">
+            <button id="navLogoutButton"
+                    title="Log out of this account."
+                    type="submit">Logout</button>
+      </form>
+</div>
+{% else %}
+<div id="mainHeaderActionButtons">
+      <a class="button"
+         href="/log-in"
+         id="navLoginButton"
+         title="Log into an existing account.">Login…</a>
+      <a class="button"
+         href="/join"
+         id="navUserRegistrationButton"
+         title="Create a new account.">New Account…</a>
+</div>
+{% endif %}
+{% endblock %}
+
+{% block content %}
+<div class="content">
+      <div id="logo"
+           title="Mycyclopedia"></div>
+      <h2 id="description">The AI-Generated Encyclopedia</h2>
+      <form action="/e/new"
+            id="newEntry"
+            method="get">
+            <div class="wrapper">
+                  <input autocapitalize="on"
+                         autocomplete="off"
+                         autofocus
+                         name="topic"
+                         placeholder="Pick any topic…"
+                         required
+                         type="text">
+                  <button title="Go!"
+                          type="submit"></button>
+            </div>
+            <div id="proficiencySliderContainer">
+                  <p class="description">What's your grasp of this topic?</p>
+                  <input id="proficiencySlider"
+                         min="1"
+                         max="3"
+                         name="proficiency"
+                         step="1"
+                         type="range"
+                         value="2">
+                  <div class="labels">
+                        <span class="label">N00b</span>
+                        <span class="label">Intermediate</span>
+                        <span class="label">Pro</span>
+                  </div>
+            </div>
+      </form>
+      {% if examples %}
+      <div id="inspiration">
+            <h2 class="title">Examples</h2>
+            <ul>
+                  {% for example in examples %}
+                  <li>
+                        <form action="/e/new"
+                              class="example"
+                              method="get">
+                              <input name="topic"
+                                     type="hidden"
+                                     value="{{example}}">
+                              <button type="submit">{{example}}</button>
+                        </form>
+                  </li>
+                  {% endfor %}
+            </ul>
+      </div>
+      {% endif %}
+
+      {% if current_user %}
+      <div id="entries">
+            <h2 class="title">My Entries</h2>
+            {% if entries %}
+            <ol>
+                  {% for entry in entries %}
+                  <li>
+                        <a class="entry"
+                           href="{{entry.permalink}}">{{entry.topic}}</a>
+                        <a class="deleteButton"
+                           href="/e/{{entry.id}}/remove"
+                           title="Delete"></a>
+                  </li>
+                  {% endfor %}
+            </ol>
+            {% else %}
+            <p class="emptyIndicator">No Entries</p>
+            {% endif %}
+      </div>
+      {% endif %}
+</div>
+<div class="hidden"
+     id="progressOverlay">
+      <div class="progressIndicator bar"
+           id="lookupProgressIndicator"></div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script charset="utf-8"
+        src="{{url_for('static', filename='scripts/index.js')}}"
+        type="text/javascript"></script>
+{% endblock %}

@@ -1,0 +1,63 @@
+{% extends "pages/base.html" %}
+
+{% block headTags %}
+<title>New Account • Mycyclopedia</title>
+<link href="{{ url_for('static', filename='styles/user_management.css') }}"
+      rel="stylesheet"
+      type="text/css">
+{% endblock %}
+
+{% block nav %}
+<h1 id="logo">
+    <a class="logotype"
+       href="/"
+       title="Home"></a>
+    <a class="text hidden"
+       href="/">Mycyclopedia</a>
+</h1>
+{% endblock %}
+
+{% block content %}
+<div class="content">
+    <h2 id="title">New Account</h2>
+    <p>Create a new account.</p>
+    {% if error_message %}
+    <em id="formError">❌ {{ error_message }}</em>
+    {% endif %}
+    <form action="/join"
+          method="post"
+          name="userRegistrationForm">
+        <div class="fields">
+            <div class="field">
+                <input autofocus
+                       class="textField autofocus"
+                       id="registrationEmailTextField"
+                       name="email_address"
+                       placeholder="Email"
+                       required
+                       type="email">
+            </div>
+            <div class="field">
+                <input class="textField"
+                       id="registrationPasswordTextField"
+                       minlength="8"
+                       name="password"
+                       placeholder="Password"
+                       required
+                       type="password">
+            </div>
+        </div>
+        <div class="panel">
+            <a class="button"
+               href="/log-in"
+               id="showLoginButton"
+               title="Login"
+               type="button">Login…</a>
+            <div class="flexibleSpace"></div>
+            <button id="userRegistrationSubmitButton"
+                    title="Register"
+                    type="submit">Register</button>
+        </div>
+    </form>
+</div>
+{% endblock %}

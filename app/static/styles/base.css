@@ -1,0 +1,562 @@
+@font-face {
+    font-family: LiberationMono;
+    src: url("../fonts/LiberationMono-Regular.ttf") format("truetype");
+}
+
+@font-face {
+    font-family: LiberationMono-Italic;
+    src: url("../fonts/LiberationMono-Italic.ttf") format("truetype");
+}
+
+@keyframes progressIndicatorBarSweep {
+    0% {
+        background-position: 100% 0;
+        box-shadow: 0 0 8pt rgba(0, 213, 255, 0.7);
+    }
+
+    50% {
+        background-position: -100% 0;
+        box-shadow: 0 0 14pt rgba(0, 213, 255, 0.8);
+    }
+
+    100% {
+        background-position: -100% 0;
+        box-shadow: 0 0 8pt rgba(0, 213, 255, 0.7);
+    }
+}
+
+@keyframes progressIndicatorSpinnerSpin {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+a {
+    color: #1a75ff;
+    text-decoration: none;
+}
+
+a:hover {
+    color: #1aa7ff;
+}
+
+a:active {
+    color: #0047b3;
+}
+
+a:hover,
+a:active {
+    text-decoration: underline;
+}
+
+a:active {
+    color: #f00;
+}
+
+blockquote {
+    border-left: 3pt solid #777;
+    color: #777;
+    padding-left: 10pt;
+}
+
+body {
+    background-color: #fff;
+    box-sizing: border-box;
+    color: #333;
+    font: 11pt -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        Roboto,
+        "Helvetica Neue",
+        Arial,
+        sans-serif;
+    margin: 0;
+    padding: 0.1px;
+}
+
+button,
+a.button {
+    background: #e7e7e7;
+    border: 1pt solid #bdbdbd;
+    border-bottom-color: #969696;
+    border-top-color: #d1d1d1;
+    border-radius: 3pt;
+    box-shadow: 0 1pt 2pt #ccc;
+    box-sizing: border-box;
+    color: #333;
+    display: inline-block;
+    font-size: 9pt;
+    font-weight: 600;
+    outline: none;
+    padding: 4pt 8pt;
+    text-align: center;
+    transition: all 0.3s;
+    user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    -webkit-appearance: none;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+}
+
+button:active:enabled,
+a.button:active {
+    background: #ccc;
+    box-shadow: none;
+    color: #000;
+    text-decoration: none;
+    transform: scale(0.95) translate(0, 1pt);
+}
+
+button:hover:enabled,
+a.button:hover {
+    background: #f5f5f5;
+    cursor: default;
+    text-decoration: none;
+}
+
+button:disabled,
+a.button.disabled {
+    background: #f5f5f5;
+    border: 1pt solid #c2c2c2;
+    box-shadow: none;
+    color: #777;
+    cursor: not-allowed;
+}
+
+button.large,
+a.button.large {
+    font-size: 18pt;
+    padding: 12pt 20pt;
+}
+
+code {
+    background: #ccc;
+    border-radius: 4pt;
+    padding: 1pt 2pt;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    line-height: 1em;
+}
+
+hr {
+    display: none;
+}
+
+input,
+textarea {
+    outline: none;
+}
+
+input[type=email],
+input[type=password],
+input[type=text],
+textarea {
+    border: 1pt solid #bdbdbd;
+    border-bottom-color: #969696;
+    border-top-color: #d1d1d1;
+    border-radius: 3pt;
+    box-shadow: 0 1pt 2pt #ccc;
+    box-sizing: border-box;
+    font-family: -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        Roboto,
+        "Helvetica Neue",
+        Arial,
+        sans-serif;
+    font-size: 11pt;
+    line-height: 1.5em;
+    padding: 2pt 3pt;
+    -webkit-appearance: none;
+}
+
+input[type=email]:disabled,
+input[type=password]:disabled,
+input[type=text]:disabled,
+textarea:disabled {
+    background: #f5f5f5;
+    border: 1pt solid #c2c2c2;
+    box-shadow: none;
+    color: #777;
+    cursor: not-allowed;
+}
+
+pre code {
+    display: block;
+    padding: 5pt;
+}
+
+textarea {
+    resize: none;
+}
+
+.hidden {
+    display: none !important;
+}
+
+.progressIndicator {
+    cursor: wait;
+}
+
+.progressIndicator.bar {
+    animation: progressIndicatorBarSweep .5s ease-in-out infinite;
+    background: linear-gradient(to right,
+            #48fffc 0%,
+            #00d9ff 50%,
+            #48fffc 100%);
+    background-size: 200% 100%;
+}
+
+.progressIndicator.spinner {
+    display: block;
+    position: relative;
+    width: 80pt;
+    height: 80pt;
+}
+
+.progressIndicator.spinner div {
+    animation: progressIndicatorSpinnerSpin 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
+    border: 8pt solid #00d9ff;
+    border-color: #00d9ff transparent transparent transparent;
+    border-radius: 50%;
+    box-sizing: border-box;
+    display: block;
+    height: 64pt;
+    margin: 8pt;
+    position: absolute;
+    width: 64pt;
+}
+
+.progressIndicator.spinner div:nth-child(1) {
+    animation-delay: -0.45s;
+}
+
+.progressIndicator.spinner div:nth-child(2) {
+    animation-delay: -0.3s;
+}
+
+.progressIndicator.spinner div:nth-child(3) {
+    animation-delay: -0.15s;
+}
+
+.smallScreen {
+    display: none;
+}
+
+#ali {
+    background: url("../images/app/8bit.png") no-repeat 100% 0;
+    background-size: contain;
+    display: inline-block;
+    padding-right: 13pt;
+}
+
+#currentAccountIdentity {
+    flex: 0.5;
+    font-style: italic;
+    text-align: right;
+}
+
+#mainFooter {
+    border-top: 0.5pt solid #ccc;
+    overflow: hidden;
+}
+
+#mainFooter .content {
+    align-items: center;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: row;
+    min-height: 35pt;
+    justify-content: center;
+    margin: 0 auto;
+    max-width: 800pt;
+    padding: 5pt 20pt;
+    text-align: center;
+}
+
+#mainHeader {
+    backdrop-filter: blur(20px);
+    background-color: rgba(255, 255, 255, 0.7);
+    left: 0;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 3;
+    -webkit-backdrop-filter: blur(20px);
+}
+
+#mainHeader .content {
+    align-items: center;
+    box-sizing: border-box;
+    display: flex;
+    height: 75pt;
+    flex-direction: row;
+    gap: 20pt;
+}
+
+#mainHeader .flexibleSpace {
+    flex: 1;
+}
+
+#mainHeader #logo {
+    flex: 1;
+    margin: 0;
+    padding-left: 20pt;
+}
+
+#mainHeader #logo .logotype {
+    background: url("../images/app/Logo-Light.png") no-repeat;
+    background-size: contain;
+    display: block;
+    height: 30px;
+    width: 208px;
+    transition: all 0.1s ease-out;
+}
+
+#mainHeader #logo:active .logotype {
+    transform: scale(0.95) translate(0, 1pt);
+}
+
+#mainHeader #newEntry {
+    align-items: center;
+    display: flex;
+    flex: 1.5;
+    flex-direction: column;
+    justify-content: center;
+}
+
+#mainHeader #newEntry .wrapper {
+    background: linear-gradient(to right,
+            #00b9da 0%,
+            #48fffc 50%,
+            #00b9da 100%);
+    background-size: 200% 100%;
+    border-radius: 32pt;
+    box-shadow: 0 0 8pt rgba(0, 213, 255, 0.7);
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: row;
+    gap: 10pt;
+    max-width: 480pt;
+    transition: all .3s linear;
+    width: 100%;
+}
+
+#mainHeader #newEntry .wrapper:hover {
+    box-shadow: 0 0 14pt rgba(0, 213, 255, 0.8);
+}
+
+#mainHeader #newEntry button {
+    background: url("../images/app/Search-Dark.png") no-repeat center;
+    background-size: contain;
+    border: 0;
+    box-shadow: none;
+    flex: 0.1;
+    margin: 10pt 0;
+}
+
+#mainHeader #newEntry input {
+    background: none;
+    border: 0;
+    box-shadow: none;
+    color: #fff;
+    flex: 1;
+    font-size: 11pt;
+    padding: 10pt 15pt;
+    text-shadow: 0 0 2pt rgba(255, 255, 255, 0.5);
+}
+
+#mainHeader #newEntry input::placeholder,
+#mainHeader #newEntry input::-webkit-input-placeholder {
+    color: #fff;
+    opacity: 0.5;
+}
+
+#mainHeader #newEntry.loading button {
+    display: none;
+}
+
+#mainHeader #newEntry.loading input {
+    color: rgba(255, 255, 255, 0.5);
+}
+
+#mainHeader #newEntry.loading .wrapper {
+    animation: progressIndicatorBarSweep .5s ease-in-out infinite;
+    cursor: wait;
+}
+
+#mainHeaderActionButtons {
+    align-items: center;
+    display: flex;
+    flex: 1;
+    flex-direction: row;
+    gap: 10pt;
+    padding-right: 20pt;
+}
+
+#mainHeaderActionButtons>* {
+    flex: 1;
+}
+
+#mainHeaderActionButtons button {
+    width: 100%;
+}
+
+#progressOverlay {
+    background: rgba(0, 0, 0, 0.5);
+    cursor: wait;
+    height: 100%;
+    left: 0;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 99;
+}
+
+#progressOverlay .progressIndicator {
+    border-radius: 12pt;
+    height: 24pt;
+    left: 50%;
+    position: absolute;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 50%;
+}
+
+@media (max-width: 768px) {
+
+    .largeScreen {
+        display: none;
+    }
+
+    .smallScreen {
+        display: block;
+    }
+
+    #currentAccountIdentity {
+        text-align: unset;
+    }
+
+    #mainFooter .content {
+        padding: 20pt;
+    }
+
+    #mainHeader {
+        position: static;
+    }
+
+    #mainHeader .content {
+        align-items: center;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        height: auto;
+    }
+
+    #mainHeader .flexibleSpace {
+        display: none;
+    }
+
+    #mainHeader #logo {
+        height: 35px;
+        grid-column: 1 / 3;
+        grid-row: 2 / 3;
+        justify-self: center;
+        padding: 0;
+        width: 280px;
+    }
+
+    #mainHeader #logo .logotype {
+        margin: 0 auto;
+    }
+
+    #mainHeader #newEntry {
+        grid-column: 1 / 3;
+    }
+
+    #mainHeaderActionButtons {
+        grid-column: 1 / 3;
+        grid-row: 2 / 3;
+    }
+}
+
+/* Styles for dark mode. */
+@media (prefers-color-scheme: dark) {
+
+    body {
+        background-color: #333;
+        color: #ccc;
+    }
+
+    button,
+    a.button {
+        background: #181818;
+        border-color: #424242;
+        border-bottom-color: #2e2e2e;
+        border-top-color: #696969;
+        box-shadow: 0 1pt 2pt #000;
+        color: #ccc;
+    }
+
+    button:active:enabled,
+    a.button:active {
+        background: #333;
+        color: #fff;
+    }
+
+    button:hover:enabled,
+    a.button:hover {
+        background: #0a0a0a;
+    }
+
+    button:disabled,
+    a.button.disabled {
+        background: #0a0a0a;
+        border: 1pt solid #3d3d3d;
+        color: #888;
+    }
+
+    code {
+        background-color: #000;
+    }
+
+    input[type=email],
+    input[type=password],
+    input[type=text],
+    textarea {
+        background-color: #505050;
+        border: 1pt solid #424242;
+        border-bottom-color: #2e2e2e;
+        border-top-color: #696969;
+        box-shadow: 0 1pt 2pt #000;
+        color: #ccc;
+    }
+
+    input[type=email]:disabled,
+    input[type=password]:disabled,
+    input[type=text]:disabled,
+    textarea:disabled {
+        background: #0a0a0a;
+        border: 1pt solid #3d3d3d;
+        color: #888;
+    }
+
+    #mainHeader {
+        background-color: rgba(51, 51, 51, 0.7);
+    }
+
+    #mainHeader #logo .logotype {
+        background-image: url("../images/app/Logo-Dark.png");
+    }
+}

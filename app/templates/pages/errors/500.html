@@ -1,0 +1,19 @@
+{% extends "pages/base.html" %}
+
+{% block headTags %}
+<title>Server Error • Mycyclopedia</title>
+<link href="{{url_for('static', filename='styles/error.css')}}"
+      rel="stylesheet"
+      type="text/css">
+{% endblock %}
+
+{% block content %}
+<div class="content">
+    <h2 id="title">Server Error</h2>
+    {% if error_message %}
+    <p>❌ {{error_message}}</p>
+    {% else %}
+    <p>The server encountered an internal error and was unable to complete your request. Either the server is overloaded or there is an error in the application.</p>
+    {% endif %}
+</div>
+{% endblock %}

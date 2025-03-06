@@ -1,0 +1,20 @@
+{% extends "pages/base.html" %}
+
+{% block headTags %}
+<title>Forbidden • Mycyclopedia</title>
+<link href="{{url_for('static', filename='styles/error.css')}}"
+      rel="stylesheet"
+      type="text/css">
+{% endblock %}
+
+{% block content %}
+<div class="content">
+    <h2 id="title">Forbidden</h2>
+    {% if error_message %}
+    <p>❌ {{error_message}}</p>
+    {% else %}
+    <p>You tried to do or view something that you don't have the required permission to!</p>
+    <p>Also make sure you're logged into the right account.</p>
+    {% endif %}
+</div>
+{% endblock %}

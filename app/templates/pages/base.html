@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+
+      <head>
+            <meta charset="utf-8">
+            <meta name="viewport"
+                  content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+            <meta name="description"
+                  content="Your AI-powered learning companion.">
+            <meta name="keywords"
+                  content="ali, mahouk, hack, computer, program, software, ai, artificial intelligence, encyclopedia, learn">
+            <link href="{{url_for('static', filename='img/app/favicon-16.png')}}"
+                  rel="icon"
+                  sizes="16x16"
+                  type="image/png">
+            <link href="{{url_for('static', filename='img/app/favicon-32.png')}}"
+                  rel="icon"
+                  sizes="32x32"
+                  type="image/png">
+            <link href="{{url_for('static', filename='img/app/favicon-96.png')}}"
+                  rel="icon"
+                  sizes="96x96"
+                  type="image/png">
+            <link href="{{url_for('static', filename='img/app/apple-touch-icon-180.png')}}"
+                  rel="apple-touch-icon"
+                  sizes="180x180"
+                  type="image/png">
+            <link rel="stylesheet"
+                  type="text/css"
+                  href="{{url_for('static', filename='styles/base.css')}}">
+            {% block headTags %}{% endblock %}
+      </head>
+
+      <body id="mycyclopedia"
+            class="{%- if current_user -%} member {%- else -%} public {%- endif -%}">
+            <nav id="mainHeader">
+                  <div class="content">
+                        {% block nav %}{% endblock %}
+                  </div>
+            </nav>
+            <main>
+                  {% block content %}{% endblock %}
+            </main>
+            <footer id="mainFooter">
+                  <div class="content">
+                        <small>&copy; 2023 <a href="https://www.linkedin.com/in/alimahouk/"
+                                 id="ali"
+                                 rel="author"
+                                 target="_blank">Ali Mahouk</a>. <em>This website is an experimental proof-of-concept. The underlying model is GPT-3.5 Turbo 1106 (knowledge of world events is up to September 2021).</em>
+                        </small>
+                  </div>
+            </footer>
+      </body>
+
+      {% block scripts %}{% endblock %}
+
+</html>

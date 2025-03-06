@@ -1,0 +1,21 @@
+main>.content {
+    margin: 75pt auto 0;
+    max-width: 500pt;
+}
+
+.content p {
+    background: #ff9393;
+    border-radius: 3pt;
+    color: #680000;
+    display: block;
+    font-style: normal;
+    font-weight: bold;
+    margin: 40pt 0;
+    padding: 10pt 15pt;
+    text-align: center;
+}
+
+#title {
+    margin: 0;
+    text-align: center;
+}

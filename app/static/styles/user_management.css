@@ -1,0 +1,60 @@
+form {
+    margin: 40pt auto;
+    max-width: 200pt;
+}
+
+form .fields {
+    display: flex;
+    flex-direction: column;
+    gap: 10pt;
+}
+
+form .flexibleSpace {
+    flex: 1;
+}
+
+form .panel {
+    display: flex;
+    flex-direction: row;
+    margin-top: 10pt;
+}
+
+form .textField {
+    display: block;
+    width: 100%;
+}
+
+main>.content {
+    margin: 75pt auto 0;
+    max-width: 500pt;
+}
+
+.content p {
+    margin: 40pt 0;
+    text-align: center;
+}
+
+#formError {
+    background: #ff9393;
+    border-radius: 3pt;
+    color: #680000;
+    display: block;
+    font-style: normal;
+    font-weight: bold;
+    margin: 40pt 0;
+    padding: 10pt 15pt;
+    text-align: center;
+}
+
+#loginSubmitButton {
+    flex: 1;
+}
+
+#title {
+    margin: 0;
+    text-align: center;
+}
+
+#userRegisterButton {
+    flex: 1.7;
+}

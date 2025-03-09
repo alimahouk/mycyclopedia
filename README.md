@@ -91,10 +91,8 @@ docker run -p 5000:5000 mycyclopedia
 
 ## License
 
-This project is licensed under the MIT License - see the LICENSE file for details.
+This project is licensed under the terms found in the LICENSE file.
 
-## Acknowledgments
+## Author
 
-- OpenAI for providing the language models
-- Flask framework and its contributors
-- All other open-source libraries used in this project
+Created by Ali Mahouk in 2023.
